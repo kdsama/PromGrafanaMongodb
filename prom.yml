@@ -1,0 +1,16 @@
+
+- job_name: 'prometheus'
+    static_configs:
+            - targets: ['PRIVATE_IP:9090']
+  - job_name: 'mongo-1'
+    static_configs:
+            - targets: ['PRIVATE_IP:9216']
+            - labels:
+                instance: 'mongo2'
+  - job_name: 'mongo-2'
+    static_configs:
+            - targets: ['PRIVATE_IP:9215']
+            - labels:
+                instance: 'mongo1'
+
+
