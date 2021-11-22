@@ -1,9 +1,9 @@
 
 start: 
-        docker run  -d  -p 9090:9090   -v /home/forge/prom/prom.yml:/etc/prometheus/prometheus.yml --network=host  --name prom prom/prometheus
+        docker run  -d -v /home/forge/prom/prom.yml:/etc/prometheus/prometheus.yml --network=host  --name prom prom/prometheus
 
 start-graf:
-        docker run -d -p 3000:3000 --network=host --name grafana grafana/grafana
+        docker run -d  --network=host --name grafana grafana/grafana
 
 runExporter1:
         docker run -d --name m1  -p 9216:9216 bitnami/mongodb-exporter:0.11.2 --mongodb.uri=mongodb://mongodb_exporter:your_unique_password@INSTANCE.1.IP:27017
